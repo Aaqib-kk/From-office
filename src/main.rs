@@ -4,7 +4,7 @@ use std::io;
 fn main() {
     
     loop { 
-    println!( "\nEnter the function you want to perform \n1) Addition\n2) Subtraction\n3) Multiplication\n4) Division\n5) Exponent\n6) Quit your Choice");
+    println!( "\n\t\t*** Simple Calculator ***\n\nEnter the Function you want to perform \n1) Addition\n2) Subtraction\n3) Multiplication\n4) Division\n5) Exponent\n6) Enter 0 to Quit");
     let mut choice = taking_input();
     let choice = convert_f32(&mut choice);
 
@@ -14,7 +14,7 @@ fn main() {
         let mut x = taking_input();
         let num1 = convert_f32(&mut x);
         if num1 == 10.0 {
-            println!("PLEASE ENTER NUMBER AGAIN");
+            println!("\n*** PLEASE ENTER NUMBER AGAIN ***\n");
             continue;
         }
 
@@ -22,7 +22,7 @@ fn main() {
         let mut y = taking_input();
         let num2 = convert_f32(&mut y);
         if num2 == 10.0 {
-            println!("PLEASE ENTER NUMBER AGAIN");
+            println!("\n** PLEASE ENTER NUMBER AGAIN ***\n");
             continue;
         }
         
@@ -54,69 +54,8 @@ fn convert_f32(x: &mut String) -> f32 {
     
     match x.trim().parse::<f32>()
         {
-        Ok(T) =>  { return T }
-        Err(T) => {  println!("You have entered invalid number!, Please Try Agin");
+        Ok(t) =>  { return t }
+        Err(_t) => {  println!("You have entered invalid number!, Please Try Agin");
                     return 10.0 }
     }
 }
-/*
-use std::io;
-
-fn read_user_input_character () -> f32 {
-    let mut user_input = String::new();
-    io::stdin().read_line(&mut user_input);
-    match user_input.trim().parse::<f32>()
-        {
-        Ok(T) =>  { return T }
-        Err(_) => { return 0.0; }
-    }
-}
-
-fn main()
-{
-
-    loop 
-    {
-    println!("\nPlease enter a letter to guess:");
-    let user_char = read_user_input_character();
-
-    /* Exit if user enters an asterisk ('*') */
-    if user_char == 0.0 {
-        break;
-    }
-    println!("input character is {}", user_char);
-    }
-    
-    
-}
-
-*/
-
-
-
-/*
-
-Q1.Project Calculator Write a calculator program. A minimal calculator will support the following
-functions:
-•numbers with decimals (not just integers)
-•addition (1 + 2 is 3) •subtraction (12 -4 is 8)
-•multiplication (33 * 2 is 66) •division (3 /8 is 0.375)
-•exponents (2 ^ 3 is 8)
-•error messages when you do something wrong Your calculator should keep on running until explicitly
-told to quit. I suggest typing a zero as the first operand to cause it to quit, i.e. Program Console
-Sample:>2 + 3 5 >4 * 9 36 >0+2
-ByeHint: Well, if you read in everything as a String, then you can convert to other things.
-What to avoid:Any program, which presents me with a screen like the following, will notreceive
-a very good score.
-Program Console Sample:
-Enter the function you wish to perform.
-1)addition
-2)subtraction
-3)multiplication
-4)division
-5) quit Your choice:
-Also, the same fate applies to any program that ever presents me with the following message:
-Would you like to calculate again? (y/n) Finally, you may use the built-in function in order
-to compute powers, but those that write their own will receive a much higher score.
-
-*///
